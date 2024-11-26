@@ -21,6 +21,14 @@
 #include <linux/of.h>
 #include <linux/regmap.h>
 
+#include <linux/clk.h>
+#include <linux/delay.h>
+#include <linux/interrupt.h>
+#include <linux/of_platform.h>
+#include <linux/rational.h>
+#include <linux/regmap.h>
+#include <linux/slab.h>
+
 /* OE1 and OE2 register */
 #define SI521XX_REG_OE(n)			(((n) & 0x1) + 1)
 #define SI521XX_REG_ID				0x3
@@ -298,7 +306,10 @@ static int si521xx_probe(struct i2c_client *client)
 		return -ENOMEM;
 	i2c_set_clientdata(client, si);
 	si->client = client;
+	
+	
 const u16 chip_info = (u16)of_device_get_match_data(&client->dev);
+
 	/* Fetch common configuration from DT (if specified) */
 	ret = si521xx_get_common_config(si);
 	if (ret)
