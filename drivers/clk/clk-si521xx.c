@@ -291,7 +291,8 @@ si521xx_of_clk_get(struct of_phandle_args *clkspec, void *data)
 static int si521xx_probe(struct i2c_client *client)
 {
 //	const u16 chip_info = (u16)(uintptr_t)i2c_get_match_data(client);
-	const u16 chip_info = of_device_get_match_data(&client->dev);
+
+	
 	
 	
 	const struct clk_parent_data clk_parent_data = { .index = 0 };
@@ -300,9 +301,11 @@ static int si521xx_probe(struct i2c_client *client)
 	struct clk_init_data init = {};
 	struct si521xx *si;
 	int i, ret;
-
-	if (!chip_info)
-		return -EINVAL;
+	
+	
+	
+//	if (!chip_info)
+//		return -EINVAL;
 
 	si = devm_kzalloc(&client->dev, sizeof(*si), GFP_KERNEL);
 	if (!si)
@@ -310,7 +313,9 @@ static int si521xx_probe(struct i2c_client *client)
 
 	i2c_set_clientdata(client, si);
 	si->client = client;
-
+	
+	
+ si->chip_info = of_device_get_match_data(&client->dev);
 	/* Fetch common configuration from DT (if specified) */
 	ret = si521xx_get_common_config(si);
 	if (ret)
@@ -328,7 +333,7 @@ static int si521xx_probe(struct i2c_client *client)
 		return ret;
 
 	/* Register clock */
-	for (i = 0; i < hweight16(chip_info); i++) {
+	for (i = 0; i <si->chip_info->clk_fod_cnt; i++) {
 		memset(&init, 0, sizeof(init));
 		snprintf(name, sizeof(name), "DIFF%d", i);
 		init.name = name;
@@ -340,7 +345,7 @@ static int si521xx_probe(struct i2c_client *client)
 		si->clk_dif[i].hw.init = &init;
 		si->clk_dif[i].si = si;
 
-		si521xx_diff_idx_to_reg_bit(chip_info, i, &si->clk_dif[i]);
+		si521xx_diff_idx_to_reg_bit(si->chip_info->clk_fod_cnt, i, &si->clk_dif[i]);
 
 		ret = devm_clk_hw_register(&client->dev, &si->clk_dif[i].hw);
 		if (ret)
