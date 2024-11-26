@@ -308,7 +308,7 @@ static int si521xx_probe(struct i2c_client *client)
 	si->client = client;
 	
 	
-        const u16 chip_info = (u16)(*(uintptr_t)of_device_get_match_data(&client->dev));
+        const u16 chip_info = (u16)(*(u16*)of_device_get_match_data(&client->dev));
 
 	/* Fetch common configuration from DT (if specified) */
 	ret = si521xx_get_common_config(si);
