@@ -291,7 +291,7 @@ si521xx_of_clk_get(struct of_phandle_args *clkspec, void *data)
 static int si521xx_probe(struct i2c_client *client)
 {
 //	const u16 chip_info = (u16)(uintptr_t)i2c_get_match_data(client);
-	const u16 chip_info = (u16)of_device_get_match_data(&client->dev);
+	const u16 chip_info = of_device_get_match_data(&client->dev);
 	
 	
 	const struct clk_parent_data clk_parent_data = { .index = 0 };
