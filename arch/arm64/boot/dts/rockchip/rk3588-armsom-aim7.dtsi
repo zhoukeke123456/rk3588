@@ -117,10 +117,8 @@
 
  tca8418@34 {
                   compatible = "ti,tca8418";
-            
                   interrupt-parent = <&gpio3>;
 		 interrupts = <RK_PC4 IRQ_TYPE_LEVEL_HIGH>;
-                  
                    reg = <0x34>;
                    keypad,num-rows = <3>;
                    keypad,num-columns = <2>;
@@ -170,7 +168,7 @@
 		    
 		    
 
-}
+};
 
 
 
