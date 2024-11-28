@@ -175,7 +175,7 @@
 	pinctrl-0 = <&i2c5m2_xfer>;
 	status = "okay";
 
-}
+};
 &i2c6 {
 
 	pinctrl-names = "default";
@@ -183,7 +183,7 @@
 	status = "okay";
 	
 	
-]
+};
 
 &iep {
 	status = "okay";
