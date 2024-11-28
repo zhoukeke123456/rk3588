@@ -9,6 +9,7 @@
 #include "rk3588.dtsi"
 #include "rk3588-rk806-single.dtsi"
 
+
 / {
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
