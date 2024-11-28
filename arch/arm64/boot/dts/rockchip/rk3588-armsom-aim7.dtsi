@@ -110,7 +110,7 @@
 	};
 };
 
-&i2c5 {
+&i2c2 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c5m2_xfer>;
 	status = "okay";
@@ -170,8 +170,20 @@
 
 };
 
+&i2c4 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c5m2_xfer>;
+	status = "okay";
 
+}
+&i2c6 {
 
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c5m2_xfer>;
+	status = "okay";
+	
+	
+]
 
 &iep {
 	status = "okay";
