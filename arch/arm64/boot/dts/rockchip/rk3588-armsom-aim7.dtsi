@@ -176,7 +176,7 @@
 	status = "okay";
 	
 	
-	  pca: pcal6416a@20 {
+	  pca2: pcal6416@20 {
 		   compatible = "nxp,pcal6416";
 		     status = "okay";
 		    gpio-controller;
