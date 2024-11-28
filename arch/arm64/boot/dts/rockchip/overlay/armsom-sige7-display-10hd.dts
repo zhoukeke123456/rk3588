@@ -11,7 +11,7 @@
 		target-path = "/";
 
 		
-
+          __overlay__ {
 			dsi1_backlight: dsi1-backlight {
 				status = "okay";
 				compatible = "pwm-backlight";
