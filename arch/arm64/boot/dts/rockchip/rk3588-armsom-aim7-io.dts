@@ -232,6 +232,7 @@
 
 &sdmmc {
 	max-frequency = <200000000>;
+	cd-gpios =  <&gpio3 RK_PB0  GPIO_ACTIVE_HIGH>;
 	no-sdio;
 	no-mmc;
 	bus-width = <4>;
