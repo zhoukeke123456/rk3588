@@ -11,7 +11,31 @@
 		target-path = "/";
 
 		__overlay__ {
-			
+			vcc_lcd_mipi1: vcc-lcd-mipi1 {
+				status = "okay";
+				compatible = "regulator-fixed";
+				regulator-name = "vcc_lcd_mipi1";
+				gpio = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
+				enable-active-high;
+				regulator-boot-on;
+				regulator-state-mem {
+					regulator-off-in-suspend;
+				};
+			};
+
+			vcc5v0_lcd_n: vcc5v0-lcd0-n {
+				status = "okay";
+				compatible = "regulator-fixed";
+				regulator-name = "vcc5v0_lcd_n";
+				gpio = <&gpio2 RK_PC2 GPIO_ACTIVE_HIGH>;
+				enable-active-high;
+				regulator-boot-on;
+				regulator-always-on;
+				regulator-state-mem {
+				regulator-off-in-suspend;
+				};
+			};
+
 			dsi1_backlight: dsi1-backlight {
 				status = "okay";
 				compatible = "pwm-backlight";
