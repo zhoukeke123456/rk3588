@@ -209,10 +209,10 @@
 
 		__overlay__ {
 			status = "okay";
-			gt9xx: gt9xx@5d {
+			gt9xx: gt9xx@14 {
 				status = "okay";
 				compatible = "goodix,gt9xx";
-				reg = <0x5d>;
+				reg = <0x14>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&gt9xx_gpio>;
 				touch-gpio = <&gpio3 RK_PA1 IRQ_TYPE_LEVEL_HIGH>;
