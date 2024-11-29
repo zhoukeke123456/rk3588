@@ -112,9 +112,10 @@
 };
 
 &i2c2 {
+         status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&i2c5m2_xfer>;
-	status = "okay";
+	pinctrl-0 = <&i2c2m0_xfer>;
+	
 
  tca8418@34 {
                   compatible = "ti,tca8418";
@@ -172,9 +173,10 @@
 };
 
 &i2c4 {
+        status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&i2c5m2_xfer>;
-	status = "okay";
+	pinctrl-0 = <&i2c4m2_xfer>;
+	
 	
 	
 	  pca2: pcal6416@20 {
@@ -195,10 +197,10 @@
 
 };
 &i2c6 {
-
+        status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&i2c5m2_xfer>;
-	status = "okay";
+	pinctrl-0 = <&i2c6m1_xfer>;
+	
 	
 	
 };
