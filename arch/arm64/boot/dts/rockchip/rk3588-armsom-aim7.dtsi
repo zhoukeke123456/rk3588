@@ -27,7 +27,7 @@
 		rockchip,format = "i2s";
 		rockchip,mclk-fs = <256>;
 		rockchip,cpu = <&i2s2_2ch>;
-		rockchip,codec = <&wm8904>;
+		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
 			"Headphone", "LOUT1",
 			"Headphone", "ROUT1",
