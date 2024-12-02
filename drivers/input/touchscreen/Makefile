@@ -58,7 +58,6 @@ gsl3673-800x1280-y := gsl3673_800x1280.o gsl_point_id.o
 obj-$(CONFIG_TOUCHSCREEN_GSLX680_PAD)	+= gslx680-pad.o
 gslx680-pad-y := gslx680_pad.o gsl_point_id.o
 obj-$(CONFIG_TOUCHSCREEN_GT1X)		+= gt1x/
-obj-$(CONFIG_TOUCHSCREEN_GT9XX)         += gt9xx.o 
 obj-$(CONFIG_TOUCHSCREEN_GOODIX_GTX8)	+= gtx8/
 obj-$(CONFIG_TOUCHSCREEN_HIDEEP)	+= hideep.o
 obj-$(CONFIG_TOUCHSCREEN_ILI210X)	+= ili210x.o

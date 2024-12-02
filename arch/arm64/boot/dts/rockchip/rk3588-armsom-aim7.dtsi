@@ -229,31 +229,17 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m1_xfer>;
 	
-		
-	 gt9xx_dsi1: gt911@5d {
+	
+	 gt9xx_dsi1: gt911@14 {
 	    status = "okay";
             compatible = "goodix,gt911";
-            reg = <0x5d>;
+            reg = <0x14>;
             interrupt-parent = <&gpio3>;
-	    interrupts = <RK_PA1 IRQ_TYPE_EDGE_FALLING>;
-             goodix,rst-gpio= <&gpio4 RK_PA4  GPIO_ACTIVE_LOW>;
-            goodix,irq-gpio = <&gpio3 RK_PA1  GPIO_ACTIVE_HIGH>;
-             goodix,cfg-group0 = [
-
-                    43 38 04 80 07 05 35 00 01 0F 28 0F 50 32 03 05
-                    00 00 00 00 00 00 06 18 1A 1E 14 8A 2A 0B 45 47
-                    B5 06 00 00 00 19 02 2C 00 01 00 00 00 03 64 32 
-                    00 00 00 28 64 94 C5 02 07 00 00 04 B2 2C 00 9C
-                    34 00 88 3F 00 78 4C 00 6D 5B 00 6D 00 00 00 00 
-                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-                    16 14 12 10 0E 0C 0A 08 06 04 02 FF FF FF 00 00 
-                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 04 
-                    06 08 0A 0C 0F 10 12 13 24 22 21 20 1F 1E 1D 1C 
-                    18 16 FF FF FF FF FF FF 00 00 00 00 00 00 00 00 
-                    00 00 00 00 00 00 00 00 2A 01
-
-                      ];
+	    interrupts = <RK_PA1 IRQ_TYPE_LEVEL_LOW>;
+            reset-gpios = <&gpio4 RK_PA4  GPIO_ACTIVE_LOW>;
+            irq-gpios = <&gpio3 RK_PA1  GPIO_ACTIVE_HIGH>;
+            touchscreen-inverted-x = <1>;
+	    touchscreen-inverted-y = <1>;
                 };		
 	
 	  codec: wm8904@1a { 
