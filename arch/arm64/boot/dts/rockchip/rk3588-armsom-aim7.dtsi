@@ -230,7 +230,8 @@
 	pinctrl-0 = <&i2c6m1_xfer>;
 	
 		
-	  goodix_ts@14 {
+	 gt9xx_dsi0: goodix_ts@14 {
+	    status = "okay";
             compatible = "goodix,gt9xx";
             reg = <0x14>;
             interrupt-parent = <&gpio3>;
