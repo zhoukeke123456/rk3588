@@ -141,7 +141,7 @@
 		    status = "okay";
 		    gpio-controller;
 		    #gpio-cells = <2>;
-		    reg = <0x21>;
+		    reg = <0x22>;
 		interrupt-parent = <&gpio3>;
 		 interrupts = <RK_PA7 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-controller;
@@ -201,9 +201,9 @@
         status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m1_xfer>;	
-	  goodix_ts@5d {
+	  goodix_ts@14 {
             compatible = "goodix,gt9xx";
-            reg = <0x5d>;
+            reg = <0x14>;
             interrupt-parent = <&gpio3>;
 	    interrupts = <RK_PA1 IRQ_TYPE_LEVEL_LOW>;
              goodix,rst-gpio= <&gpio4 RK_PA4  GPIO_ACTIVE_LOW>;
