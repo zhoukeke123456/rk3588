@@ -230,10 +230,10 @@
 	pinctrl-0 = <&i2c6m1_xfer>;
 	
 	
-	 gt9xx_dsi1: gt911@14 {
+	 gt9xx_dsi1: gt911@5d {
 	    status = "okay";
             compatible = "goodix,gt911";
-            reg = <0x14>;
+            reg = <0x5d>;
             interrupt-parent = <&gpio3>;
 	    interrupts = <RK_PA1 IRQ_TYPE_LEVEL_LOW>;
             reset-gpios = <&gpio4 RK_PA4  GPIO_ACTIVE_LOW>;
