@@ -18,10 +18,6 @@
 		status = "okay";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
-		io-channels = <&saradc 4>;
-		io-channel-names = "adc-detect";
-		keyup-threshold-microvolt = <1800000>;
-		poll-interval = <100>;
 		rockchip,format = "i2s";
 		rockchip,mclk-fs = <256>;
 		rockchip,cpu = <&i2s0_8ch>;
@@ -35,25 +31,7 @@
 			"LINPUT2", "Main Mic",
 			"RINPUT1", "Headset Mic",
 			"RINPUT2", "Headset Mic";
-		pinctrl-names = "default";
-		pinctrl-0 = <&hp_det>;
-		play-pause-key {
-			label = "playpause";
-			linux,code = <KEY_PLAYPAUSE>;
-			press-threshold-microvolt = <2000>;
-		};
-
-		previous-song-key {
-			label = "previoussong";
-			linux,code = <KEY_PREVIOUSSONG>;
-			press-threshold-microvolt = <145000>;
-		};
-
-		next-song-key {
-			label = "nextsong";
-			linux,code = <KEY_NEXTSONG>;
-			press-threshold-microvolt = <290000>;
-		};
+		
 	};
 
 };
@@ -282,11 +260,7 @@
 		pinctrl-names = "default";
 		pinctrl-0 = <&i2s0_mclk>;
                        };
-                       
-
-                       
-                       
-                       
+                                         
 	
 };
 
