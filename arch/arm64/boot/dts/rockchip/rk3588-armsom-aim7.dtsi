@@ -200,22 +200,7 @@
 &i2c6 {
         status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&i2c6m1_xfer>;
-	
-	gt9xx: gt9xx@14 {
-				status = "okay";
-				compatible = "goodix,gt9xx";
-				reg = <0x14>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&gt9xx_gpio>;
-				touch-gpio = <&gpio3 RK_PA1 IRQ_TYPE_LEVEL_HIGH>;
-				reset-gpio = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-				max-x = <1080>;
-				max-y = <1920>;
-				tp-size = <89>;
-				configfile-num = <1>;  
-			};
-			
+	pinctrl-0 = <&i2c6m1_xfer>;	
 	  goodix_ts@5d {
             compatible = "goodix,gt9xx";
             reg = <0x5d>;
@@ -237,8 +222,6 @@
                     06 08 0A 0C 0F 10 12 13 24 22 21 20 1F 1E 1D 1C 
                     18 16 FF FF FF FF FF FF 00 00 00 00 00 00 00 00 
                     00 00 00 00 00 00 00 00 2A 01
-
-
 
                       ];
                 };		
