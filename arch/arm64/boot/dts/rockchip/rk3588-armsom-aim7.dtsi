@@ -265,7 +265,7 @@
 		assigned-clocks = <&mclkout_i2s2>;
 		assigned-clock-rates = <12288000>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&i2s2_mclk>;
+		pinctrl-0 = <&i2s2m1_mclk>;
                        };
                                          
 	
