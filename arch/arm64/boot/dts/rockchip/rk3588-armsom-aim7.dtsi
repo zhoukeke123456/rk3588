@@ -26,7 +26,7 @@
 		poll-interval = <100>;
 		rockchip,format = "i2s";
 		rockchip,mclk-fs = <256>;
-		rockchip,cpu = <&i2s2_8ch>;
+		rockchip,cpu = <&i2s0_8ch>;
 		rockchip,codec = <&wm8904>;
 		rockchip,audio-routing =
 			"Headphone", "LOUT1",
@@ -273,7 +273,7 @@
 
 
 
-&i2s2_8ch {
+&i2s0_8ch {
 	status = "okay";
 	rockchip,clk-trcm = <1>;
 	pinctrl-0 = <&i2s2_lrck
@@ -281,6 +281,8 @@
 			 &i2s2_sdi0
 			 &i2s2_sdo0>;
 };
+
+
 
 &iep {
 	status = "okay";
