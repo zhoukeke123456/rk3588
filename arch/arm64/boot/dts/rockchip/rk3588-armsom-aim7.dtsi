@@ -117,24 +117,6 @@
 	pinctrl-0 = <&i2c2m0_xfer>;
 	
 
- tca8418@34 {
-                  compatible = "ti,tca8418";
-                  interrupt-parent = <&gpio3>;
-		 interrupts = <RK_PC4 IRQ_TYPE_LEVEL_HIGH>;
-                   reg = <0x34>;
-                   keypad,num-rows = <3>;
-                   keypad,num-columns = <2>;
-                   linux,keymap = <
-                        0x0000003b
-                        0x0001003c
-                        0x0100003d
-                        0x0101003e
-                        0x0200003f
-                        0x02010040
-                      >;
-                       status = "okay";
-		    };
-		 
 		 
 		 
 		    
@@ -154,7 +136,7 @@
 	           };
 	           
 	           
-   pcal6524a@21 {
+   pcal6524a@22 {
 		   compatible = "nxp,pcal6524";
 		    status = "okay";
 		    gpio-controller;
@@ -178,6 +160,25 @@
 	pinctrl-0 = <&i2c4m2_xfer>;
 	
 	
+ tca8418@34 {
+                  compatible = "ti,tca8418";
+                  interrupt-parent = <&gpio3>;
+		 interrupts = <RK_PC4 IRQ_TYPE_LEVEL_HIGH>;
+                   reg = <0x34>;
+                   keypad,num-rows = <3>;
+                   keypad,num-columns = <2>;
+                   linux,keymap = <
+                        0x0000003b
+                        0x0001003c
+                        0x0100003d
+                        0x0101003e
+                        0x0200003f
+                        0x02010040
+                      >;
+                       status = "okay";
+		    };
+		    
+	  	 
 	
 	  pca2: pcal6416@20 {
 		   compatible = "nxp,pcal6416";
@@ -201,7 +202,51 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m1_xfer>;
 	
+	gt9xx: gt9xx@14 {
+				status = "okay";
+				compatible = "goodix,gt9xx";
+				reg = <0x14>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&gt9xx_gpio>;
+				touch-gpio = <&gpio3 RK_PA1 IRQ_TYPE_LEVEL_HIGH>;
+				reset-gpio = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
+				max-x = <1080>;
+				max-y = <1920>;
+				tp-size = <89>;
+				configfile-num = <1>;  
+			};
+			
+	  goodix_ts@5d {
+            compatible = "goodix,gt9xx";
+            reg = <0x5d>;
+            interrupt-parent = <&gpio3>;
+	    interrupts = <RK_PA1 IRQ_TYPE_LEVEL_LOW>;
+             goodix,rst-gpio= <&gpio4 RK_PA4  GPIO_ACTIVE_LOW>;
+             goodix,irq-gpio= <&gpio3 RK_PA1  GPIO_ACTIVE_HIGH>;
+             goodix,cfg-group0 = [
+
+                    43 38 04 80 07 05 35 00 01 0F 28 0F 50 32 03 05
+                    00 00 00 00 00 00 06 18 1A 1E 14 8A 2A 0B 45 47
+                    B5 06 00 00 00 19 02 2C 00 01 00 00 00 03 64 32 
+                    00 00 00 28 64 94 C5 02 07 00 00 04 B2 2C 00 9C
+                    34 00 88 3F 00 78 4C 00 6D 5B 00 6D 00 00 00 00 
+                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+                    16 14 12 10 0E 0C 0A 08 06 04 02 FF FF FF 00 00 
+                    00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 04 
+                    06 08 0A 0C 0F 10 12 13 24 22 21 20 1F 1E 1D 1C 
+                    18 16 FF FF FF FF FF FF 00 00 00 00 00 00 00 00 
+                    00 00 00 00 00 00 00 00 2A 01
+
+
+
+                      ];
+                };		
 	
+	  codec: wm8904@1a {
+                
+               
+                       };
 	
 };
 

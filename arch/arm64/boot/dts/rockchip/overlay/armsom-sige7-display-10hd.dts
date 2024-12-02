@@ -211,16 +211,16 @@
 			status = "okay";
 			gt9xx: gt9xx@14 {
 				status = "okay";
-				compatible = "goodix,gt9xx";
-				reg = <0x14>;
-				pinctrl-names = "default";
-				pinctrl-0 = <&gt9xx_gpio>;
-				touch-gpio = <&gpio3 RK_PA1 IRQ_TYPE_LEVEL_HIGH>;
-				reset-gpio = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
-				max-x = <1080>;
-				max-y = <1920>;
-				tp-size = <89>;
-				configfile-num = <1>;  
+			//	compatible = "goodix,gt9xx";
+			//	reg = <0x14>;
+			//	pinctrl-names = "default";
+			//	pinctrl-0 = <&gt9xx_gpio>;
+	                //	touch-gpio = <&gpio3 RK_PA1 IRQ_TYPE_LEVEL_HIGH>;
+			//	reset-gpio = <&gpio4 RK_PA4 GPIO_ACTIVE_HIGH>;
+			//	max-x = <1080>;
+			//	max-y = <1920>;
+			//	tp-size = <89>;
+			//	configfile-num = <1>;  
 			};
 		
 		};
@@ -233,7 +233,8 @@
 		dsi1-lcd {
 			
 				dsi1_backlight_en: dsi1-backlight-en {
-					rockchip,pins =<3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
+					rockchip,pins =
+					        <3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
 				};
 			};
 			gt9xx {
