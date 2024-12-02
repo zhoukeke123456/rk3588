@@ -276,10 +276,13 @@
 &i2s2_2ch {
 	status = "okay";
 	rockchip,clk-trcm = <1>;
-	pinctrl-0 = <&i2s2_lrck
-			 &i2s2m1_sclk
-			 &i2s2m1_sdi
-			 &i2s2m1_sdo>;
+	pinctrl-0 = <&i2s2m1_sdi
+			     &i2s2m1_sdo>;
+		pinctrl-2 = <&i2s2m1_lrck
+			     &i2s2m1_sclk>;
+
+			 
+			 
 };
 
 
