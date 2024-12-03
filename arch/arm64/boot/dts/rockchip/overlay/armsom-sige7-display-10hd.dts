@@ -78,7 +78,6 @@
 				status = "okay";
 				compatible = "simple-panel-dsi";
 				reg = <0>;
-				power-supply = <&vcc3v3_lcd_n>;
 				reset-gpios = <&gpio4 RK_PA7 GPIO_ACTIVE_LOW>;
 				backlight = <&dsi1_backlight>;
 				pinctrl-names = "default";
