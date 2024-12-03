@@ -14,7 +14,7 @@
 			dsi1_backlight: dsi1-backlight {
 				status = "okay";
 				compatible = "pwm-backlight";
-				pwms = <&pwm2 0 25000 0>;
+				pwms = <&pwm10 0 25000 0>;
 				brightness-levels = <
 			 		0  20  20  21  21  22  22  23
 			 		23  24  24  25  25  26  26  27
@@ -58,12 +58,12 @@
 	};
 
 	fragment@1 {
-		target = <&pwm2>;
+		target = <&pwm10>;
 
 		__overlay__ {
 			status = "okay";
 			pinctrl-names = "active";
-			pinctrl-0 = <&pwm2m2_pins>;		
+			pinctrl-0 = <&pwm10m0_pins>;		
 		};
 	};
 
