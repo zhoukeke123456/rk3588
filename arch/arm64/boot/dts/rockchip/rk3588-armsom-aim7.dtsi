@@ -19,20 +19,12 @@
 	wm8904_sound: wm8904-sound {
 		status = "okay";
 		compatible = "simple-audio-card";
-		simple-audio-card,format= "i2s";
-		simple-audio-card,mclk-fs = <256>;
-		simple-audio-card,name = "rockchip-wm8904";
-		simple-audio-card,dai-link@0 {
-			format = "i2s";
-			cpu {
-				sound-dai = <&i2s2_2ch>;
-			};
-			codec {
-				sound-dai = <&codec>;
-			};
-		};
-		
-		/*rockchip,cpu = <&i2s2_2ch>;
+		compatible = "rockchip,multicodecs-card";
+		rockchip,card-name = "rockchip-wm8904";
+	
+		rockchip,format = "i2s";
+		rockchip,mclk-fs = <256>;
+		rockchip,cpu = <&i2s2_2ch>;
 		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
 			"Headphone", "LOUT1",
@@ -42,7 +34,7 @@
 			"LINPUT1", "Main Mic",
 			"LINPUT2", "Main Mic",
 			"RINPUT1", "Headset Mic",
-			"RINPUT2", "Headset Mic";*/
+			"RINPUT2", "Headset Mic";
 		
 		
 	};
@@ -269,6 +261,7 @@
 &i2s2_2ch {
 	status = "okay";
 	rockchip,clk-trcm = <1>;
+	pinctrl-names = "default";
 	pinctrl-0 = <&i2s2m1_sdi
 			     &i2s2m1_sdo>;
 		pinctrl-2 = <&i2s2m1_lrck
