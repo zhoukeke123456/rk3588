@@ -18,7 +18,6 @@
 	
 	wm8904_sound: wm8904-sound {
 		status = "okay";
-		compatible = "simple-audio-card";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
 	
