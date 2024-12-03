@@ -211,7 +211,12 @@
 
 		__overlay__ {
 		dsi1-lcd {
-			
+		               dsi1_lcd_rst_gpio: dsi1-lcd-rst-gpio {
+					rockchip,pins =
+						<4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_up>;
+				};
+
+
 				dsi1_backlight_en: dsi1-backlight-en {
 					rockchip,pins =
 					        <3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
