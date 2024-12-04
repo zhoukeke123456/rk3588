@@ -11,7 +11,6 @@
 
 #include <dt-bindings/usb/pd.h>
 #include <dt-bindings/pwm/pwm.h>
-#include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/input/linux-event-codes.h>
 #include <dt-bindings/display/rockchip_vop.h>
 #include <dt-bindings/sensor-dev.h>
@@ -35,10 +34,6 @@
 		rockchip,cpu = <&i2s2_2ch>;
 		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
-			"Headphone", "LOUT1",
-			"Headphone", "ROUT1",
-			"Headphone", "Headphone Power",
-			"Headphone", "Headphone Power",
 			"LINPUT1", "Main Mic",
 			"LINPUT2", "Main Mic",
 			"RINPUT1", "Headset Mic",
