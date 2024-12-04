@@ -50,9 +50,9 @@
 					248 249 250 251 252 253 254 255
 				>;
 				default-brightness-level = <200>;
-				enable-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
+				/*enable-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
 				pinctrl-names = "default";
-				pinctrl-0 = <&dsi1_backlight_en>;
+				pinctrl-0 = <&dsi1_backlight_en>;*/
 			};			
 		};
 	};
@@ -62,7 +62,7 @@
 
 		__overlay__ {
 			status = "okay";
-			pinctrl-names = "active";
+		 //      pinctrl-names = "active";
 			pinctrl-0 = <&pwm10m0_pins>;		
 		};
 	};
