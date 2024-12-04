@@ -36,8 +36,6 @@
 		rockchip,audio-routing =
 			"LINPUT1", "Main Mic",
 			"LINPUT2", "Main Mic",
-			"RINPUT1", "Headset Mic",
-			"RINPUT2", "Headset Mic";
 		play-pause-key {
 			label = "playpause";
 			linux,code = <KEY_PLAYPAUSE>;
