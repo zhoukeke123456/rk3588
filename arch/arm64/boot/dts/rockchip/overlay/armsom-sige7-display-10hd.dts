@@ -135,11 +135,10 @@
 						vfront-porch = <15>;
 						vsync-len = <4>;
 						vback-porch = <8>;
-						
 						hsync-active = <0>;
 						vsync-active = <0>;
 						de-active = <0>;
-						pixelclk-active = <0>;
+						pixelclk-active = <1>;
 					};
 				};
 				ports {
