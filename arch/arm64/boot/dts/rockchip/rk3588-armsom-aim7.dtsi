@@ -37,7 +37,7 @@
 			"LINPUT2", "Main Mic",
 			"RINPUT1", "Headset Mic",
 			"RINPUT2", "Headset Mic";
-	/*	play-pause-key {
+		play-pause-key {
 			label = "playpause";
 			linux,code = <KEY_PLAYPAUSE>;
 			press-threshold-microvolt = <2000>;
@@ -53,7 +53,7 @@
 			label = "nextsong";
 			linux,code = <KEY_NEXTSONG>;
 			press-threshold-microvolt = <290000>;
-		};*/
+		};
 		
 	};
 
