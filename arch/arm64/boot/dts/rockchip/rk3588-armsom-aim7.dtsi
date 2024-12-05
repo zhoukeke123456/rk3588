@@ -26,15 +26,13 @@
 		simple-audio-card,format = "i2s";
 		simple-audio-card,mclk-fs = <256>;
 		simple-audio-card,name = "rockchip-wm8904";
-		simple-audio-card,dai-link@0 {
-			format = "i2s";
-			cpu {
+		simple-audio-card,cpu {
 				sound-dai = <&i2s2_2ch>;
 			};
-			codec {
+		simple-audio-card,codec {
 				sound-dai = <&codec>;
 			};
-		};
+		
 	};*/
 	
 	wm8904_sound: wm8904-sound {
@@ -48,8 +46,10 @@
 		rockchip,cpu = <&i2s2_2ch>;
 		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
-			"LINPUT1", "Main Mic",
-			"LINPUT2", "Main Mic";
+		     "x Headphone", "x HPOUTL",
+                       "x Headphone", "x HPOUTR",
+                       "x Line Out", "x LINEOUTL",
+                       "x Line Out", "x LINEOUTR";
 		/*	"Headphone", "LOUT1",
 			"Headphone", "ROUT1",
 			"Headphone", "Headphone Power",
