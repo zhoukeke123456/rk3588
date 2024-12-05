@@ -21,7 +21,23 @@
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
 	
-	wm8904_sound: wm8904-sound {
+		wm8904_sound: wm8904_sound {
+		compatible = "simple-audio-card";
+		simple-audio-card,format = "i2s";
+		simple-audio-card,mclk-fs = <256>;
+		simple-audio-card,name = "rockchip-wm8904";
+		simple-audio-card,dai-link@0 {
+			format = "i2s";
+			cpu {
+				sound-dai = <&i2s2_2ch>;
+			};
+			codec {
+				sound-dai = <&codec>;
+			};
+		};
+	};
+	
+	/*wm8904_sound: wm8904-sound {
 		status = "okay";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
@@ -52,7 +68,7 @@
 			label = "nextsong";
 			linux,code = <KEY_NEXTSONG>;
 			press-threshold-microvolt = <290000>;
-		};
+		};*/
 		
 	};
 
