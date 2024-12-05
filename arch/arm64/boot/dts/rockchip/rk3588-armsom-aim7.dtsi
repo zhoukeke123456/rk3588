@@ -68,9 +68,9 @@
 			label = "nextsong";
 			linux,code = <KEY_NEXTSONG>;
 			press-threshold-microvolt = <290000>;
-		};*/
+		};
 		
-	};
+	};*/
 
 };
 
