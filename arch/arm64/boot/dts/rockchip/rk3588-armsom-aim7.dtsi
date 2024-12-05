@@ -20,7 +20,7 @@
 / {
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
-	
+	/*
 		wm8904_sound: wm8904_sound {
 		compatible = "simple-audio-card";
 		simple-audio-card,format = "i2s";
@@ -35,9 +35,9 @@
 				sound-dai = <&codec>;
 			};
 		};
-	};
+	};*/
 	
-	/*wm8904_sound: wm8904-sound {
+	wm8904_sound: wm8904-sound {
 		status = "okay";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
@@ -52,6 +52,14 @@
 		rockchip,audio-routing =
 			"LINPUT1", "Main Mic",
 			"LINPUT2", "Main Mic";
+		/*	"Headphone", "LOUT1",
+			"Headphone", "ROUT1",
+			"Headphone", "Headphone Power",
+			"Headphone", "Headphone Power",
+			"LINPUT1", "Main Mic",
+			"LINPUT2", "Main Mic",
+			"RINPUT1", "Headset Mic",
+			"RINPUT2", "Headset Mic";*/
 		play-pause-key {
 			label = "playpause";
 			linux,code = <KEY_PLAYPAUSE>;
@@ -69,9 +77,7 @@
 			linux,code = <KEY_NEXTSONG>;
 			press-threshold-microvolt = <290000>;
 		};
-		
-	};*/
-
+	};
 };
 
 &av1d {
@@ -248,9 +254,6 @@
 		 interrupts = <RK_PA4 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-controller;
 		 #interrupt-cells = <2>;
-                  
-
-                   
 	           };
 	
 
@@ -289,8 +292,6 @@
                 AVDD-supply = <&vcc_1v8_s0>;
                 CPVDD-supply = <&vcc_1v8_s0>;
                 MICVDD-supply = <&vcc_3v3_s3>;
-		
-		
                        };
                                          
 	

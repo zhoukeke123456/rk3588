@@ -26,7 +26,7 @@
 
 	/delete-node/ chosen;
 
-	dp0_sound: dp0-sound {
+	/*dp0_sound: dp0-sound {
 		compatible = "rockchip,hdmi";
 		rockchip,card-name= "rockchip-dp0";
 		rockchip,mclk-fs = <512>;
@@ -42,7 +42,7 @@
 		rockchip,cpu = <&i2s5_8ch>;
 		rockchip,codec = <&hdmi0>;
 		rockchip,jack-det;
-	};
+	};*/
 
 	vcc12v_dcin: vcc12v-dcin {
 		compatible = "regulator-fixed";
