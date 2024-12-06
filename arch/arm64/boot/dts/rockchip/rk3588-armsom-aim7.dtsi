@@ -23,7 +23,7 @@
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
 	
-		wm8904_sound: wm8904_sound {
+	/*	wm8904_sound: wm8904_sound {
 		compatible = "simple-audio-card";
 		simple-audio-card,format = "i2s";
 		simple-audio-card,mclk-fs = <256>;
@@ -35,9 +35,9 @@
 				sound-dai = <&codec>;
 			};
 		
-	};
+	};*/
 	
-	/*wm8904_sound: wm8904-sound {
+	wm8904_sound: wm8904-sound {
 		status = "okay";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
@@ -58,7 +58,7 @@
 			"RINPUT1", "Headset Mic",
 			"RINPUT2", "Headset Mic";
 		
-	};*/
+	};
 };
 
 &av1d {
