@@ -29,7 +29,7 @@
 		simple-audio-card,mclk-fs = <256>;
 		simple-audio-card,name = "rockchip-wm8904";
 		simple-audio-card,cpu {
-				sound-dai = <&i2s2_2ch>;
+				sound-dai = <&i2s1_8ch>;
 			};
 		simple-audio-card,codec {
 				sound-dai = <&codec>;
@@ -45,7 +45,7 @@
 		poll-interval = <100>;
 		rockchip,format = "i2s";
 		rockchip,mclk-fs = <256>;
-		rockchip,cpu = <&i2s2_2ch>;
+		rockchip,cpu = <&i2s1_8ch>;
 		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
 		
@@ -255,12 +255,12 @@
 		#sound-dai-cells = <0>;
 		compatible = "wlf,wm8904";
 		reg = <0x1a>;
-		clocks = <&mclkout_i2s2>;
+		clocks = <&mclkout_i2s1>;
 		clock-names = "mclk";
-		assigned-clocks = <&mclkout_i2s2>;
+		assigned-clocks = <&mclkout_i2s1>;
 		assigned-clock-rates = <12288000>;
 		pinctrl-names = "default";
-		pinctrl-0 = <&i2s2m1_mclk>;
+		pinctrl-0 = <&i2s1m0_mclk>;
 		DBVDD-supply = <&vcc_1v8_s0>;
                 DCVDD-supply = <&vcc_1v8_s0>;
                 AVDD-supply = <&vcc_1v8_s0>;
@@ -270,6 +270,22 @@
                                          
 	
 };
+&i2s1_8ch {
+	status = "okay";
+	rockchip,clk-trcm = <1>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2s1m0_lrck
+			     &i2s1m0_sclk
+			     &i2s1m0_sdi0
+			      &i2s1m0_sdo0
+			     >;
+
+
+			 
+			 
+};
+
+
 &i2c3 {
     status = "okay";
     #address-cells = <1>;
@@ -433,18 +449,7 @@
 
 
 
-&i2s2_2ch {
-	status = "okay";
-	rockchip,clk-trcm = <1>;
-	pinctrl-names = "default";
-	pinctrl-0 = <&i2s2m1_sdi
-			     &i2s2m1_sdo>;
-		pinctrl-2 = <&i2s2m1_lrck
-			     &i2s2m1_sclk>;
 
-			 
-			 
-};
 
 
 
