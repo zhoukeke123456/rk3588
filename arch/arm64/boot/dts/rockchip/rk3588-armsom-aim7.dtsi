@@ -282,9 +282,6 @@
         reg = <0x1a>;
         clocks = <&ext_cam_24m_clk>;
         clock-names = "xvclk";
-	avdd-supply = <&cam_avdd>;
-	dovdd-supply = <&cam_dovdd>;
-	dvdd-supply = <&cam_dvdd>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&mipim0_camera3_clk>;
 	power-domains = <&power RK3588_PD_VI>;
