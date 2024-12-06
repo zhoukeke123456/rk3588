@@ -15,12 +15,13 @@
 #include <dt-bindings/display/rockchip_vop.h>
 #include <dt-bindings/sensor-dev.h>
 #include "rk3588-linux.dtsi"
-
+#include <dt-bindings/clock/rk3588-cru.h>
+#include <dt-bindings/power/rk3588-power.h>
 
 / {
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
-	/*
+	
 		wm8904_sound: wm8904_sound {
 		compatible = "simple-audio-card";
 		simple-audio-card,format = "i2s";
@@ -33,9 +34,9 @@
 				sound-dai = <&codec>;
 			};
 		
-	};*/
+	};
 	
-	wm8904_sound: wm8904-sound {
+	/*wm8904_sound: wm8904-sound {
 		status = "okay";
 		compatible = "rockchip,multicodecs-card";
 		rockchip,card-name = "rockchip-wm8904";
@@ -46,20 +47,17 @@
 		rockchip,cpu = <&i2s2_2ch>;
 		rockchip,codec = <&codec>;
 		rockchip,audio-routing =
-		     "x Headphone", "x HPOUTL",
-                       "x Headphone", "x HPOUTR",
-                       "x Line Out", "x LINEOUTL",
-                       "x Line Out", "x LINEOUTR";
-		/*	"Headphone", "LOUT1",
+		
+			"Headphone", "LOUT1",
 			"Headphone", "ROUT1",
 			"Headphone", "Headphone Power",
 			"Headphone", "Headphone Power",
 			"LINPUT1", "Main Mic",
 			"LINPUT2", "Main Mic",
 			"RINPUT1", "Headset Mic",
-			"RINPUT2", "Headset Mic";*/
+			"RINPUT2", "Headset Mic";
 		
-	};
+	};*/
 };
 
 &av1d {
@@ -161,11 +159,7 @@
          status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c2m0_xfer>;
-	
-
-		 
-		 
-		    
+	 
   pca: pcal6416a@20 {
 		   compatible = "nxp,pcal6416";
 		     status = "okay";
@@ -175,10 +169,7 @@
 		interrupt-parent = <&gpio1>;
 		 interrupts = <RK_PD5 IRQ_TYPE_LEVEL_HIGH>;
 		interrupt-controller;
-		 #interrupt-cells = <2>;
-                  
-
-                   
+		 #interrupt-cells = <2>;                                
 	           };
 	           
 	           
@@ -278,6 +269,166 @@
                                          
 	
 };
+&i2c3 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&i2c3m0_xfer>;
+    
+    imx586: imx586@1a {
+        status = "okay";
+        compatible = "sony,imx586";
+        reg = <0x1a>;
+        clocks = <&ext_cam_24m_clk>;
+        clock-names = "xvclk";
+	avdd-supply = <&cam_avdd>;
+	dovdd-supply = <&cam_dovdd>;
+	dvdd-supply = <&cam_dvdd>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&mipim0_camera3_clk>;
+	power-domains = <&power RK3588_PD_VI>;
+	pwdn-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
+	rockchip,camera-module-index = <0>;
+	rockchip,camera-module-facing = "back";
+	rockchip,camera-module-name = "CMK-OT1607-FV1";
+	rockchip,camera-module-lens-name = "M12-40IRC-4MP-F16";
+	port {
+		imx586_out0: endpoint {
+			remote-endpoint = <&mipidphy0_in_ucam0>;
+			data-lanes = <1 2>;
+				     };
+	     };
+        };
+};
+
+&csi2_dphy0_hw {
+    status = "okay";
+};
+
+&csi2_dphy1_hw {
+    status = "okay";
+};
+
+&csi2_dphy0 {
+    status = "okay";
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        port@0 {
+            reg = <0>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            mipidphy0_in_ucam0: endpoint@1 {
+                reg = <1>;
+                remote-endpoint = <&imx586_out0>;
+                data-lanes = <1 2>;
+            };
+
+        };
+
+        port@1 {
+            reg = <1>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            csidphy0_out: endpoint@0 {
+                reg = <0>;
+                remote-endpoint = <&mipi2_csi2_input>;
+            };
+        };
+    };
+};
+
+&mipi2_csi2 {
+    status = "okay";
+
+    ports {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        port@0 {
+            reg = <0>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            mipi2_csi2_input: endpoint@1 {
+                reg = <1>;
+                remote-endpoint = <&csidphy0_out>;
+            };
+        };
+
+        port@1 {
+            reg = <1>;
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            mipi2_csi2_output: endpoint@0 {
+                reg = <0>;
+                remote-endpoint = <&cif_mipi2_in0>;
+            };
+        };
+    };
+};
+&rkcif {
+    status = "okay";
+};
+
+&rkcif_mipi_lvds2 {
+    status = "okay";
+
+    port {
+        cif_mipi2_in0: endpoint {
+            remote-endpoint = <&mipi2_csi2_output>;
+        };
+    };
+};
+
+&rkcif_mipi_lvds2_sditf {
+    status = "okay";
+
+    port {
+        mipi_lvds2_sditf: endpoint {
+            remote-endpoint = <&isp0_vir0>;
+        };
+    };
+};
+
+&rkcif_mmu {
+    status = "okay";
+};
+
+&rkisp0 {
+    status = "okay";
+};
+
+&isp0_mmu {
+    status = "okay";
+};
+
+&rkisp0_vir0 {
+    status = "okay";
+
+    port {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        isp0_vir0: endpoint@0 {
+            reg = <0>;
+            remote-endpoint = <&mipi_lvds2_sditf>;
+        };
+    };
+};
+
+
+
+
+
+
+
 
 
 
