@@ -292,10 +292,10 @@
     pinctrl-names = "default";
     pinctrl-0 = <&i2c3m0_xfer>;
     
-    imx586: imx586@34 {
+    imx586: imx586@1a {
         status = "okay";
         compatible = "sony,imx586";
-        reg = <0x34>;
+        reg = <0x1a>;
         clocks = <&ext_cam_24m_clk>;
         clock-names = "xvclk";
         power-domains = <&power RK3588_PD_VI>;
