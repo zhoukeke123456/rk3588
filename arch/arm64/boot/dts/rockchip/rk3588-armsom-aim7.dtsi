@@ -285,6 +285,38 @@
 			 
 };
 
+&i2c3 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    pinctrl-names = "default";
+    pinctrl-0 = <&i2c3m0_xfer>;
+    
+    imx586: imx586@34 {
+        status = "okay";
+        compatible = "sony,imx586";
+        reg = <0x34>;
+        clocks = <&ext_cam_24m_clk>;
+        clock-names = "xvclk";
+        power-domains = <&power RK3588_PD_VI>;
+	avdd-supply = <&cam_avdd>;
+	dovdd-supply = <&cam_dovdd>;
+	dvdd-supply = <&cam_dvdd>;
+	reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
+      //pwdn-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
+	rockchip,camera-module-index = <0>;
+	rockchip,camera-module-facing = "back";
+	rockchip,camera-module-name = "CMK-OT1607-FV1";
+	rockchip,camera-module-lens-name = "M12-40IRC-4MP-F16";
+	port {
+		imx586_out0: endpoint {
+			remote-endpoint = <&mipidphy0_in_ucam0>;
+			data-lanes = <1 2>;
+				     };
+	     };
+        };
+};
+
 &csi2_dphy0_hw {
     status = "okay";
 };
@@ -583,37 +615,6 @@
 	status = "okay";
 };
 
-&i2c3 {
-    status = "okay";
-    #address-cells = <1>;
-    #size-cells = <0>;
-    pinctrl-names = "default";
-    pinctrl-0 = <&i2c3m0_xfer>;
-    
-    imx586: imx586@34 {
-        status = "okay";
-        compatible = "sony,imx586";
-        reg = <0x34>;
-        clocks = <&ext_cam_37m_clk>;
-        clock-names = "xvclk";
-        power-domains = <&power RK3588_PD_VI>;
-	avdd-supply = <&cam_avdd>;
-	dovdd-supply = <&cam_dovdd>;
-	dvdd-supply = <&cam_dvdd>;
-	reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
-      //pwdn-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
-	rockchip,camera-module-index = <0>;
-	rockchip,camera-module-facing = "back";
-	rockchip,camera-module-name = "CMK-OT1607-FV1";
-	rockchip,camera-module-lens-name = "M12-40IRC-4MP-F16";
-	port {
-		imx586_out0: endpoint {
-			remote-endpoint = <&mipidphy0_in_ucam0>;
-			data-lanes = <1 2>;
-				     };
-	     };
-        };
-};
 
 
 
