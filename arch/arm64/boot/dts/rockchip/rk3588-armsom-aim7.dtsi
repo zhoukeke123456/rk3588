@@ -313,17 +313,17 @@
 		clocks = <&ext_cam_24m_clk>;
 		clock-names = "xvclk";
 		power-domains = <&power RK3588_PD_VI>;
-		/*avdd-supply = <&cam_avdd>;
+		avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
-		dvdd-supply = <&cam_dvdd>;*/
+		dvdd-supply = <&cam_dvdd>;
 	//	pwdn-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
 
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
-		rockchip,camera-module-name = "CMK-OT1607-FV1";
-		rockchip,camera-module-lens-name =  "M12-40IRC-4MP-F16";
-		//	lens-focus = <&dw9800w>;
+		rockchip,camera-module-name = "RADXA-CAMERA-8M";
+		rockchip,camera-module-lens-name =  "default";
+		//lens-focus = <&dw9800w>;
 		// NO_HDR:0 HDR_X2:5 HDR_X3:6
 		// rockchip,camera-hdr-mode = <0>;
 		port {
