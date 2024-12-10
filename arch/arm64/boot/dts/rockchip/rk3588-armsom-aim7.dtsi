@@ -17,6 +17,8 @@
 #include <dt-bindings/clock/rk3588-cru.h>
 #include <dt-bindings/power/rk3588-power.h>
 
+
+
 / {
 	model = "ArmSoM AIM7 ";
 	compatible = "armsom,aim7", "rockchip,rk3588";
@@ -34,6 +36,7 @@
 			};
 		
 	};
+	
 	
 	/*wm8904_sound: wm8904-sound {
 		status = "okay";
