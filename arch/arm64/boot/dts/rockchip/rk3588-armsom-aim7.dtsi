@@ -329,7 +329,7 @@
 		port {
 			imx415_dcphy0_out: endpoint {
 				remote-endpoint = <&dcphy0_in_imx415>;
-				data-lanes = <1 2>;
+				data-lanes = <1 2 3 4>;
 			};
 		};
 	};
@@ -354,7 +354,7 @@
 			dcphy0_in_imx415: endpoint@5 {
 				reg = <1>;
 				remote-endpoint = <&imx415_dcphy0_out>;
-				data-lanes = <1 2>;
+				data-lanes = <1 2 3 4>;
 			};
 		};
 
