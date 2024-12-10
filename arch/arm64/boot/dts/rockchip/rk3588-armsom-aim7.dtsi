@@ -7,9 +7,7 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include "rk3588.dtsi"
-
 #include "rk3588-rk806-single.dtsi"
-#include "rk3588-armsom-aim7-camera.dtsi"
 #include <dt-bindings/usb/pd.h>
 #include <dt-bindings/pwm/pwm.h>
 #include <dt-bindings/input/linux-event-codes.h>
