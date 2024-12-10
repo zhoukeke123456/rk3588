@@ -317,7 +317,7 @@
 		dovdd-supply = <&cam_dovdd>;
 		dvdd-supply = <&cam_dvdd>;
 	//	pwdn-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
+		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
 
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
