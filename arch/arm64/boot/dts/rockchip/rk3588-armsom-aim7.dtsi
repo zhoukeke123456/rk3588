@@ -290,9 +290,20 @@
          pinctrl-names = "default";
          pinctrl-0 = <&i2c3m0_xfer>;
          
+
+	  pca3: pcal6416@20 {
+		   compatible = "nxp,pcal6416";
+		     status = "okay";
+		    gpio-controller;
+		    #gpio-cells = <2>;
+		    reg = <0x20>;
+		interrupt-parent = <&gpio0>;
+		 interrupts = <RK_PA4 IRQ_TYPE_LEVEL_HIGH>;
+		interrupt-controller;
+		 #interrupt-cells = <2>;
+	           };
          
-         
-         }
+     }
 
 /*
 
