@@ -313,9 +313,9 @@
 		clocks = <&ext_cam_24m_clk>;
 		clock-names = "xvclk";
 		power-domains = <&power RK3588_PD_VI>;
-		avdd-supply = <&cam_avdd>;
+		/*avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
-		dvdd-supply = <&cam_dvdd>;
+		dvdd-supply = <&cam_dvdd>;*/
 	//	pwdn-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_LOW>;
 
