@@ -6162,8 +6162,8 @@
 		interrupts = <GIC_SPI 321 IRQ_TYPE_LEVEL_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&i2c4m0_xfer>;
-		resets = <&cru SRST_I2C4>, <&cru SRST_P_I2C4>;
-		reset-names = "i2c", "apb";
+		//resets = <&cru SRST_I2C4>, <&cru SRST_P_I2C4>;
+		//reset-names = "i2c", "apb";
 		#address-cells = <1>;
 		#size-cells = <0>;
 		status = "disabled";
