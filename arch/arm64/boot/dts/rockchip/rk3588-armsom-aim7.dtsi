@@ -95,7 +95,7 @@
 	status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c0m2_xfer>;
-
+        
 	vdd_cpu_big0_s0: vdd_cpu_big0_mem_s0: rk8602@42 {
 		compatible = "rockchip,rk8602";
 		reg = <0x42>;
@@ -161,6 +161,7 @@
          status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c2m0_xfer>;
+	 clock-frequency = <400000>;
 	 
   pca: pcal6416a@20 {
 		   compatible = "nxp,pcal6416";
@@ -197,7 +198,7 @@
         status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c4m2_xfer>;
-	
+	clock-frequency = <400000>;
 	
  tca8418@34 {
                   compatible = "ti,tca8418";
@@ -237,7 +238,7 @@
         status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c6m1_xfer>;
-	
+	clock-frequency = <400000>;
 	
 	 gt9xx_dsi1: gt911@5d {
 	    status = "okay";
