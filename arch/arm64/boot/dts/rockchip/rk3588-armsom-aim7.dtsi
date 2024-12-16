@@ -324,20 +324,12 @@
 		clock-names = "xvclk";
 		pinctrl-names = "default";
 		pinctrl-0 = <&mipim1_camera0_clk>;
-		
-		/*clocks = <&cru CLK_MIPI_CAMARAOUT_M3>;
-                clock-names = "xvclk";
-                pinctrl-names = "default";
-                pinctrl-0 = <&mipim0_camera3_clk>;*/
-		
-		
 		power-domains = <&power RK3588_PD_VI>;
 		avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
 		dvdd-supply = <&cam_dvdd>;
 	//	pwdn-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
-
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "RADXA-CAMERA-8M";
@@ -348,7 +340,7 @@
 		port {
 			imx415_dcphy0_out: endpoint {
 				remote-endpoint = <&dcphy0_in_imx415>;
-				data-lanes = <1 2>;
+				data-lanes = <1 2 3 4>;
 			};
 		};
 	};
@@ -373,7 +365,7 @@
 			dcphy0_in_imx415: endpoint@5 {
 				reg = <1>;
 				remote-endpoint = <&imx415_dcphy0_out>;
-				data-lanes = <1 2>;
+				data-lanes = <1 2 3 4>;
 			};
 		};
 

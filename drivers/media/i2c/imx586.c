@@ -43,7 +43,7 @@
 #define IMX586_LINK_FREQ_400		400000000	// 800Mbps per lane
 #define IMX586_LINK_FREQ_625		625000000	// 1250Mbps per lane
 
-#define IMX586_LANES			2
+#define IMX586_LANES			4
 
 #define PIXEL_RATE_WITH_848M_10BIT	(IMX586_LINK_FREQ_400 * 2 / 10 * 4)
 #define PIXEL_RATE_WITH_848M_12BIT	(IMX586_LINK_FREQ_400 * 2 / 12 * 4)
@@ -1659,12 +1659,12 @@ disable_clk:
 static void __imx586_power_off(struct imx586 *imx586)
 {
 
-	/*if (!IS_ERR(imx586->pwdn_gpio))
+	if (!IS_ERR(imx586->pwdn_gpio))
 		gpiod_set_value_cansleep(imx586->pwdn_gpio, 0);
 	clk_disable_unprepare(imx586->xvclk);
 	if (!IS_ERR(imx586->reset_gpio))
 		gpiod_set_value_cansleep(imx586->reset_gpio, 0);
-	regulator_bulk_disable(IMX586_NUM_SUPPLIES, imx586->supplies);*/
+	regulator_bulk_disable(IMX586_NUM_SUPPLIES, imx586->supplies);
 }
 
 static int imx586_runtime_resume(struct device *dev)
