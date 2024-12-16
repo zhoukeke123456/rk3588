@@ -320,8 +320,10 @@
 		compatible = "sony,imx586";
 		status = "okay";
 		reg = <0x1a>;
-		clocks = <&ext_cam_24m_clk>;
+		clocks = <&cru CLK_MIPI_CAMARAOUT_M0>;
 		clock-names = "xvclk";
+		pinctrl-names = "default";
+		pinctrl-0 = <&mipim0_camera0_clk>;
 		power-domains = <&power RK3588_PD_VI>;
 		avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
