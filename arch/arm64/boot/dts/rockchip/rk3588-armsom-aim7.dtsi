@@ -316,7 +316,7 @@
          pinctrl-0 = <&i2c3m0_xfer>;
 
 
-	dcphy0_imx415: imx415@1a {
+	dphy0_imx415: imx415@1a {
 		compatible = "sony,imx586";
 		status = "okay";
 		reg = <0x1a>;
