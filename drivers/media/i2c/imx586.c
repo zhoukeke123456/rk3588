@@ -1646,7 +1646,7 @@ static int __imx586_power_on(struct imx586 *imx586)
 
 	/* 8192 cycles prior to first SCCB transaction */
 	delay_us = imx586_cal_delay(8192);
-	usleep_range(delay_us, delay_us * 20);
+	usleep_range(delay_us, delay_us * 2000);
 
 	return 0;
 
