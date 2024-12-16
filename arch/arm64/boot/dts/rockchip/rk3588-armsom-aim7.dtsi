@@ -345,14 +345,14 @@
 		};
 	};
 };
-
-&mipi_dcphy0 {
+&csi2_dphy0_hw {
 	status = "okay";
 };
 
-&csi2_dcphy0 {
+
+&csi2_dphy0 {
 	status = "okay";
-	
+
 	ports {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -362,11 +362,12 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			dcphy0_in_imx415: endpoint@5 {
+			dphy0_in_imx415: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&imx415_dcphy0_out>;
+				remote-endpoint = <&imx415_dphy0_out>;
 				data-lanes = <1 2 3 4>;
 			};
+			
 		};
 
 		port@1 {
@@ -374,15 +375,15 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidcphy0_out: endpoint@0 {
+			csidphy0_out: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&mipi0_csi2_input>;
+				remote-endpoint = <&mipi2_csi2_input>;
 			};
 		};
 	};
 };
 
-&mipi0_csi2 {
+&mipi2_csi2 {
 	status = "okay";
 
 	ports {
@@ -394,9 +395,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi0_csi2_input: endpoint@1 {
+			mipi2_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidcphy0_out>;
+				remote-endpoint = <&csidphy0_out>;
 			};
 		};
 
@@ -405,33 +406,34 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			mipi0_csi2_output: endpoint@0 {
+			mipi2_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi_in0>;
+				remote-endpoint = <&cif_mipi2_in0>;
 			};
 		};
 	};
 };
+
 
 &rkcif {
 	status = "okay";
 };
 
-&rkcif_mipi_lvds {
+&rkcif_mipi_lvds2 {
 	status = "okay";
 
 	port {
-		cif_mipi_in0: endpoint {
-			remote-endpoint = <&mipi0_csi2_output>;
+		cif_mipi2_in0: endpoint {
+			remote-endpoint = <&mipi2_csi2_output>;
 		};
 	};
 };
 
-&rkcif_mipi_lvds_sditf {
+&rkcif_mipi_lvds2_sditf {
 	status = "okay";
 
 	port {
-		mipi_lvds_sditf: endpoint {
+		mipi_lvds2_sditf: endpoint {
 			remote-endpoint = <&isp0_vir0>;
 		};
 	};
@@ -458,11 +460,10 @@
 
 		isp0_vir0: endpoint@0 {
 			reg = <0>;
-			remote-endpoint = <&mipi_lvds_sditf>;
+			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
 	};
 };
-
 
 
 /*
