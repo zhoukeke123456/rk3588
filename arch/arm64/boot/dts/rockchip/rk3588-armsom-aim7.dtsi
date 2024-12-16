@@ -198,7 +198,7 @@
         status = "okay";
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c4m2_xfer>;
-	clock-frequency = <400000>;
+	clock-frequency = <100000>;
 	
  tca8418@34 {
                   compatible = "ti,tca8418";
@@ -290,7 +290,7 @@
 	 status = "okay";
          pinctrl-names = "default";
          pinctrl-0 = <&i2c3m0_xfer>;
-         
+         clock-frequency = <100000>;
 
 	  pca3: pcal6416@20 {
 		   compatible = "nxp,pcal6416";

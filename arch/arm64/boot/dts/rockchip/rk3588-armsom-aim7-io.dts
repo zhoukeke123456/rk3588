@@ -124,7 +124,27 @@
 		vin-supply = <&vcc5v0_sys>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&vcc3v3_pcie30_en>;
+	}; 
+	
+	/*wireless_bluetooth: wireless-bluetooth {
+		compatible = "bluetooth-platdata";
+		clocks = <&hym8563>;
+		clock-names = "ext_clock";
+		uart_rts_gpios = <&gpio1 RK_PA2 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default", "rts_gpio";
+		pinctrl-0 = <&uart6m1_rtsn>;
+		pinctrl-1 = <&uart6_gpios>;
+		BT,reset_gpio = <&gpio3 RK_PA6 GPIO_ACTIVE_HIGH>;
 	};
+
+	wireless_wlan: wireless-wlan {
+		compatible = "wlan-platdata";
+		wifi_chip_type = "ap6275p";
+		pinctrl-names = "default";
+		pinctrl-0 = <&wifi_host_wake_irq>,<&wifi_poweren_gpio>;
+		WIFI,host_wake_irq = <&gpio0 RK_PB2 GPIO_ACTIVE_HIGH>;
+		WIFI,poweren_gpio = <&gpio0 RK_PC4 GPIO_ACTIVE_HIGH>;
+	};*/
 };
 
 &combphy2_psu {
@@ -160,6 +180,17 @@
 &hdptxphy_hdmi0 {
 	status = "okay";
 };
+
+&i2s2_2ch {
+	status = "okay";
+		
+	pinctrl-0 = <&i2s2m1_sdi
+		     &i2s2m1_sdo>;
+	pinctrl-1 = <&i2s2m1_idle>;
+	pinctrl-2 = <&i2s2m1_lrck
+		     &i2s2m1_sclk>;
+};
+
 
 &i2s5_8ch {
 	status = "okay";
