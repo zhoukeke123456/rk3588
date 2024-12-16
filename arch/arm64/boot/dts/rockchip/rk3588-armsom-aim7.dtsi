@@ -314,16 +314,23 @@
 	 status = "okay";
          pinctrl-names = "default";
          pinctrl-0 = <&i2c3m0_xfer>;
-     clock-frequency = <100000>;
+
 
 	dcphy0_imx415: imx415@1a {
 		compatible = "sony,imx586";
 		status = "okay";
 		reg = <0x1a>;
-		clocks = <&cru CLK_MIPI_CAMARAOUT_M0>;
+		
+		
+		
+		clocks = <&cru CLK_MIPI_CAMARAOUT_M1>;
 		clock-names = "xvclk";
 		pinctrl-names = "default";
 		pinctrl-0 = <&mipim0_camera0_clk>;
+		
+		
+		
+		
 		power-domains = <&power RK3588_PD_VI>;
 		avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
