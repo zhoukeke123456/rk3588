@@ -1659,12 +1659,12 @@ disable_clk:
 static void __imx586_power_off(struct imx586 *imx586)
 {
 
-	if (!IS_ERR(imx586->pwdn_gpio))
+	/*if (!IS_ERR(imx586->pwdn_gpio))
 		gpiod_set_value_cansleep(imx586->pwdn_gpio, 0);
 	clk_disable_unprepare(imx586->xvclk);
 	if (!IS_ERR(imx586->reset_gpio))
 		gpiod_set_value_cansleep(imx586->reset_gpio, 0);
-	regulator_bulk_disable(IMX586_NUM_SUPPLIES, imx586->supplies);
+	regulator_bulk_disable(IMX586_NUM_SUPPLIES, imx586->supplies);*/
 }
 
 static int imx586_runtime_resume(struct device *dev)
