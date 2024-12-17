@@ -429,11 +429,11 @@
 	status = "okay";
 };
 &rkisp_unite {
-	status = ¡°okay¡±;
+	status = "okay";
 };
 
 &rkisp_unite_mmu {
-	status = ¡°okay¡±;
+	status =  "okay";
 };
 &rkisp0_vir0 {
 	status = "okay";
