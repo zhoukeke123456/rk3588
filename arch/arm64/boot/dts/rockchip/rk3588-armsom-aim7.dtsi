@@ -407,37 +407,31 @@
 	};
 };
 
-/*&rkcif_mipi_lvds2_sditf {
-	status = "okay";
+&rkcif_mipi_lvds2_sditf {
+	status = "disabled";
 
 	port {
 		mipi_lvds2_sditf: endpoint {
 			remote-endpoint = <&isp0_vir0>;
 		};
 	};
-};*/
+};
 
 &rkcif_mmu {
 	status = "okay";
 };
-/*
+
 &rkisp0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &isp0_mmu {
-	status = "okay";
-};
-&rkisp_unite {
-	status = "okay";
+	status = "disabled";
 };
 
-&rkisp_unite_mmu {
-	status =  "okay";
-};
 &rkisp0_vir0 {
-	status = "okay";
-        rockchip,hw = <&rkisp_unite>;
+	status = "disabled";
+       
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -447,7 +441,7 @@
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
 	};
-};*/
+};
 
 
 /*
