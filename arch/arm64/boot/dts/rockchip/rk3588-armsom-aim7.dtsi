@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 /*
  * Copyright (c) 2024 Jianfeng Liu <liujianfeng1994@gmail.com>
- *#include "rk3588-lubancat-cam.dtsi" #include "rk3588-lubancat-5io-cam0.dtsi"
+
  */
 
 #include <dt-bindings/gpio/gpio.h>
@@ -407,7 +407,7 @@
 	};
 };
 
-&rkcif_mipi_lvds2_sditf {
+/*&rkcif_mipi_lvds2_sditf {
 	status = "okay";
 
 	port {
@@ -415,7 +415,7 @@
 			remote-endpoint = <&isp0_vir0>;
 		};
 	};
-};
+};*/
 
 &rkcif_mmu {
 	status = "okay";
@@ -424,7 +424,7 @@
 &rkisp0 {
 	status = "okay";
 };
-
+/*
 &isp0_mmu {
 	status = "okay";
 };
@@ -447,7 +447,7 @@
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
 	};
-};
+};*/
 
 
 /*
