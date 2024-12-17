@@ -328,8 +328,8 @@
 		avdd-supply = <&cam_avdd>;
 		dovdd-supply = <&cam_dovdd>;
 		dvdd-supply = <&cam_dvdd>;
-	//	pwdn-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
-		reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
+		pwdn-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
+	//	reset-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
 		rockchip,camera-module-index = <0>;
 		rockchip,camera-module-facing = "back";
 		rockchip,camera-module-name = "RADXA-CAMERA-8M";
@@ -338,8 +338,8 @@
 		// NO_HDR:0 HDR_X2:5 HDR_X3:6
 		// rockchip,camera-hdr-mode = <0>;
 		port {
-			imx415_dcphy0_out: endpoint {
-				remote-endpoint = <&dphy0_in_imx415>;
+			imx415_dphy1_out: endpoint {
+				remote-endpoint = <&dphy1_in_imx415>;
 				data-lanes = <1 2 3 4>;
 			};
 		};
@@ -350,7 +350,7 @@
 };
 
 
-&csi2_dphy0 {
+&csi2_dphy1 {
 	status = "okay";
 
 	ports {
@@ -362,9 +362,9 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			dphy0_in_imx415: endpoint@1 {
+			dphy1_in_imx415: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&imx415_dcphy0_out>;
+				remote-endpoint = <&imx415_dphy0_out>;
 				data-lanes = <1 2 3 4>;
 			};
 			
@@ -375,7 +375,7 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 
-			csidphy0_out: endpoint@0 {
+			csidphy1_out: endpoint@0 {
 				reg = <0>;
 				remote-endpoint = <&mipi2_csi2_input>;
 			};
@@ -397,7 +397,7 @@
 
 			mipi2_csi2_input: endpoint@1 {
 				reg = <1>;
-				remote-endpoint = <&csidphy0_out>;
+				remote-endpoint = <&csidphy1_out>;
 			};
 		};
 
@@ -408,7 +408,7 @@
 
 			mipi2_csi2_output: endpoint@0 {
 				reg = <0>;
-				remote-endpoint = <&cif_mipi2_in0>;
+				remote-endpoint = <&cif_mipi2_in2>;
 			};
 		};
 	};
@@ -423,7 +423,7 @@
 	status = "okay";
 
 	port {
-		cif_mipi2_in0: endpoint {
+		cif_mipi2_in2: endpoint {
 			remote-endpoint = <&mipi2_csi2_output>;
 		};
 	};
@@ -434,7 +434,7 @@
 
 	port {
 		mipi_lvds2_sditf: endpoint {
-			remote-endpoint = <&isp0_vir0>;
+			remote-endpoint = <&isp0_vir2>;
 		};
 	};
 };
@@ -451,14 +451,14 @@
 	status = "okay";
 };
 
-&rkisp0_vir0 {
+&rkisp0_vir2 {
 	status = "okay";
 
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		isp0_vir0: endpoint@0 {
+		isp0_vir2: endpoint@0 {
 			reg = <0>;
 			remote-endpoint = <&mipi_lvds2_sditf>;
 		};
