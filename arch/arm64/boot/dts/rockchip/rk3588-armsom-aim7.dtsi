@@ -428,10 +428,16 @@
 &isp0_mmu {
 	status = "okay";
 };
+&rkisp_unite {
+	status = ¡°okay¡±;
+};
 
+&rkisp_unite_mmu {
+	status = ¡°okay¡±;
+};
 &rkisp0_vir0 {
 	status = "okay";
-
+        rockchip,hw = <&rkisp_unite>;
 	port {
 		#address-cells = <1>;
 		#size-cells = <0>;
