@@ -287,7 +287,7 @@
 			 
 			 
 };
-
+/*
 &i2c3 {
 	 status = "okay";
          pinctrl-names = "default";
@@ -442,14 +442,13 @@
 		};
 	};
 };
+*/
 
 
-/*
 &i2c3 {
 	 status = "okay";
          pinctrl-names = "default";
          pinctrl-0 = <&i2c3m0_xfer>;
-
 
 	dphy0_imx415: imx415@1a {
 		compatible = "sony,imx586";
@@ -599,7 +598,7 @@
 		};
 	};
 };
-*/
+
 
 
 &iep {
