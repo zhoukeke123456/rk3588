@@ -408,7 +408,7 @@
 };
 
 &rkcif_mipi_lvds2_sditf {
-	status = "disabled";
+	status = "okay";
 
 	port {
 		mipi_lvds2_sditf: endpoint {
@@ -422,15 +422,15 @@
 };
 
 &rkisp0 {
-	status = "disabled";
+	status = "okay";
 };
 
 &isp0_mmu {
-	status = "disabled";
+	status = "okay";
 };
 
 &rkisp0_vir0 {
-	status = "disabled";
+	status = "okay";
        
 	port {
 		#address-cells = <1>;
